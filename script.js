@@ -4,6 +4,7 @@ const strengthMeter = document.querySelector('.strength-meter');
 const requirements = document.querySelectorAll('.requirements p');
 const togglePassword = document.getElementById('togglePassword');
 const verifyButton = document.getElementById('verifyPassword');
+const generateButton = document.getElementById('generatePassword');
 
 // Password patterns
 const patterns = {
@@ -48,6 +49,44 @@ verifyButton.addEventListener('click', async function() {
     } else {
         alert('Success: Password not found in common password lists!');
     }
+});
+
+function generatePassword() {
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numbers = '0123456789';
+    const special = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+    
+    let password = '';
+    
+    // Ensure at least one of each character type
+    password += lowercase[Math.floor(Math.random() * lowercase.length)];
+    password += uppercase[Math.floor(Math.random() * uppercase.length)];
+    password += numbers[Math.floor(Math.random() * numbers.length)];
+    password += special[Math.floor(Math.random() * special.length)];
+    
+    // Fill remaining length (12 chars total)
+    const allChars = lowercase + uppercase + numbers + special;
+    while (password.length < 12) {
+        password += allChars[Math.floor(Math.random() * allChars.length)];
+    }
+    
+    // Shuffle the password
+    password = password.split('').sort(() => Math.random() - 0.5).join('');
+    
+    return password;
+}
+
+generateButton.addEventListener('click', function() {
+    const newPassword = generatePassword();
+    passwordInput.value = newPassword;
+    passwordInput.type = 'text'; // Show password temporarily
+    updateStrength(); // Update strength meter
+    
+    // Hide password after 2 seconds
+    setTimeout(() => {
+        passwordInput.type = 'password';
+    }, 2000);
 });
 
 // Main strength checking function

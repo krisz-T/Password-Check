@@ -170,3 +170,20 @@ input:focus {
 #verifyPassword:disabled {
     cursor: not-allowed;
 }
+
+#generatePassword {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #48bb78;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#generatePassword:hover {
+    background: #38a169;
+}
