@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Password Strength Checker</h2>
+        <div class="input-box">
+            <div class="password-wrapper">
+                <input type="password" id="password" placeholder="Enter your password">
+                <button id="togglePassword">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
+            </div>
+            <div class="strength-meter"></div>
+        </div>
+        <div class="requirements">
+            <p id="length">At least 8 characters</p>
+            <p id="uppercase">Contains uppercase letter</p>
+            <p id="lowercase">Contains lowercase letter</p>
+            <p id="number">Contains number</p>
+            <p id="special">Contains special character</p>
+        </div>
+        <button id="verifyPassword" disabled>
+            Verify Against Common Passwords
+        </button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
