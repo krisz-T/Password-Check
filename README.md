@@ -15,10 +15,6 @@ A modern web application that helps users validate password strength and generat
 - Visual strength indicators
 - Show / Hide password
 
-## Demo
-
-[Live Demo](https://password-check.bitmaker.ro/)
-
 ## Security Checks
 
 The application validates passwords against:
